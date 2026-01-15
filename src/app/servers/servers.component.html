@@ -1,0 +1,28 @@
+<label>Server Name</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<!-- Two-Way-Databinding: binding in both directions -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<!-- <p>{{ serverName }}</p> -->
+<!-- Square brackets around disabled means property binding. -->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<!-- <p>{{ allowNewServer }}</p> -->
+<!-- <p [innerText]="allowNewServer"></p> -->
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<!-- *ngIf is a structural directive -->
+<p *ngIf="serverCreated; else noServer">Server was created! Server name is {{ serverName }}</p>
+<ng-template #noServer>
+    <p>No server was created!</p>
+</ng-template>
+<!-- This can only be used in Angular 17 -->
+@if (serverCreated) {
+<p>Server was created! Server name is {{ serverName }}</p>
+} @else {
+<p>No server was created!</p>
+}
+<!-- <app-server></app-server> -->
+<!-- <app-server></app-server> -->
+<app-server *ngFor="let server of servers"></app-server>
+
+<!-- @for (server of servers; track server.id) {
+  <li>{{ server.serverName }}</li>
+} -->

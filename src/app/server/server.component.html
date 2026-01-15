@@ -1,0 +1,13 @@
+<p>The Server Component</p>
+<!-- STRING INTERPOLATION -->
+<!-- must return a string or something that can be converted to a string such a number -->
+<!-- calling a string with {{ serverStatus }} -->
+<!-- <p>{{ 'Server' }} with ID {{ serverId }} is {{ serverStatus }}</p> -->
+<!-- calling a method with {{ serverStatus() }} -->
+<!-- ngStyle is the directive property name and putting brackets around it mean we want to bind it (property binding). -->
+<!-- <p [ngStyle]="{'background-color': 'red'}">{{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p> -->
+<!-- <p [ngStyle]="{backgroundColor: 'red'}">{{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p> -->
+<p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus === 'online'}">{{ 'Server' }} with ID {{
+    serverId }} is {{
+    getServerStatus() }}
+</p>
